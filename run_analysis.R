@@ -16,7 +16,7 @@ names(subject.train) <- "subject"
 names(subject.test) <- "subject"
 names(labels.train) <- "labels"
 names(labels.test) <- "labels"
-# Mergesactivity, subject and data 
+# Merge activity, subject and data 
 data.train <- cbind(data.train, subject.train, labels.train)
 data.test <- cbind(data.test, subject.test, labels.test)
 # Merges the training and the test sets to create one data set.
@@ -29,5 +29,9 @@ data <- data[, c(as.character(data.names$V2[grepl("-mean\\(|-std\\(",data.names$
 data$labels <- as.factor(data$labels)
 levels(data$labels) <- activity.labels$V2
 # Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
-data.aggregate <- aggregate(data, by=list(data$subject, data$labels), mean) 
+data.aggregate <- aggregate(data, by=list(data$subject, data$labels), mean)
+names(data.aggregate)[1] <- "subject"
+names(data.aggregate)[2] <- "activity"
+data.aggregate <- data.aggregate[,1:68]
+# Save result dataset
 write.table(data.aggregate, "x_aggregate.txt")
