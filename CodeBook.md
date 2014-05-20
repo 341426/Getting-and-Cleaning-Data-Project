@@ -95,7 +95,7 @@ Below is the full list of variables in the result data set.
 
 1, 2 - Subject id and Activity that used to aggregate data.
 
-3 - 68 - Average mean and standard deviation of data data collected from the accelerometers.
+3 - 68 - Average mean and standard deviation of data collected from the accelerometers.
 
 1. subject
 2. activity
